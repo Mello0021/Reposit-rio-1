@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Minha Namorada ❤️</title>
+    <style>
+        #container {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #image-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        #start-image {
+            cursor: pointer;
+            width: 80%;
+            max-width: 600px;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            filter: drop-shadow( 0px 0px 12px #ff0000)
+        }
+        #content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        #content.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        #start-image.zoomed {
+            transform: scale(1.1);
+            opacity: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe6e6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #ffcccc;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
+            & img{
+                width: 6vw;
+                filter: drop-shadow( 0px 0px 12px #ff0000)
+            }
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #b30000;
+        }
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        section h2 {
+            color: #b30000;
+            font-size: 2em;
+            margin-top: 0;
+        }
+        section p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        .photo-gallery{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+
+        }
+        .photo-gallery img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background-color: #ffcccc;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
+        }
+        footer p {
+            margin: 0;
+            font-size: 1em;
+            color: #b30000;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const image = document.getElementById('start-image');
+            const content = document.getElementById('content');
+
+            image.addEventListener('click', function() {
+                image.classList.add('zoomed');
+                setTimeout(() => {
+                    content.classList.add('visible');
+                    setTimeout(() => {
+                        image.style.display = 'none';
+                    }, 500);
+                }, 500);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div id="image-container">
+          <img id="start-image" src="img/coração.png" alt="Imagem Inicial">
+        </div>
+    </div>
+    <div id="content">
+        <header>
+            <h1>💍 Para Minha Namorada 💍</h1>
+            <img src="img/coração.png" alt="">
+        </header>
+        <section>
+            <h2>Mensagem 1</h2>
+            <p>Minha querida, você ilumina meus dias com seu sorriso e faz minha vida mais feliz. Cada momento ao seu lado é especial, e eu sou eternamente grato por ter você comigo.</p>
+        </section>
+        <section>
+            <h2>Mensagem 2</h2>
+            <p>Nosso amor é como uma linda jornada, cheia de aventuras e descobertas. Eu mal posso esperar para continuar essa jornada com você, lado a lado.</p>
+        </section>
+        <section id="fotos">
+            <h2>Nossas Fotos</h2>
+            <div class="photo-gallery">
+                <img src="img/foto1.jfif" alt="Foto 1">
+                <img src="img/foto2.jfif" alt="Foto 2">
+                <img src="img/foto3.jfif" alt="Foto 3">
+                <img src="img/foto4.jfif" alt="Foto 4">
+            </div>
+        </section>
+        <footer>
+            <p>Com amor, Momo</p>
+        </footer>
+    </div>
+</body>
+</html>
